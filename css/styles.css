@@ -266,10 +266,19 @@ ul {
 
 .skills-item-image-left {
   margin-right: 5rem;
+  transition: 0.3s;
+}
+
+.skills-item:hover .skills-item-image-left {
+  color: var(--light-green)
 }
 
 .skills-item-image-right {
   margin-left: 5rem;
+}
+
+.skills-item:hover .skills-item-image-right {
+  color: var(--light-green)
 }
 
 .skills-item-title-left {
@@ -312,6 +321,11 @@ ul {
 #projects-coming-soon {
   animation: rotation 2s infinite linear;
   margin: 5rem 0;
+  transition: 0.3s;
+}
+
+#projects-coming-soon:hover {
+  color: var(--light-green);
 }
 
 /* Contact Me */
