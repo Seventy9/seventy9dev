@@ -1,0 +1,431 @@
+/* Custom properties/variables  */
+:root {
+  --main-blue: #1f4068;
+  --main-gray: #1b1c25;
+  --main-white: #ebecf1;
+  --main-green: #206a5d;
+  --light-green: hsl(169, 54%, 52%);
+}
+
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* box-sizing and font sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+
+  /* Set font size for easy rem calculations
+  * default document font size = 16px, 1rem = 16px, 100% = 16px
+  * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+/* A few media query to set some font sizes at different screen sizes.
+* This helps automate a bit of responsiveness.
+* The trick is to use the rem unit for size values, margin and padding.
+* Because rem is relative to the document font size
+* when we scale up or down the font size on the document
+* it will affect all properties using rem units for the values.
+*/
+
+/* I am using the em unit for breakpoints
+* The calculation is the following
+* screen size divided by browser base font size
+* As an example: a breakpoint at 980px
+* 980px / 16px = 61.25em
+*/
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* Base styles */
+a {
+  color: var(--light-green);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  align-items: center;
+  background-color: var(--main-gray);
+  color: var(--main-white);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.8rem; /* 18px */
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+h1, h2, h3 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 4.2rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+/* Nav */
+#nav {
+  background-color: var(--main-green);
+  border-bottom: 0.2rem solid var(--main-gray);
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+#nav-brand {
+  margin: 1rem 1rem 1rem 3rem;
+}
+
+#nav-brand-link {
+  color: var(--main-white);
+}
+
+#nav-brand-link:hover {
+  text-decoration: none;
+}
+
+#nav-brand-image {
+  margin-right: 1rem;
+}
+
+#nav-list {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 46rem;
+}
+
+.nav-item {
+  display: block;
+  margin: 1rem 2rem 0 0;
+}
+
+.nav-link {
+  color: var(--main-white);
+  padding: 1rem 2rem;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  background-color: var(--main-blue);
+  color: var(--main-white);
+  text-decoration: none;
+}
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  #nav {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  #nav-brand {
+    text-align: center;
+  }
+  #nav-list {
+    justify-content: center;
+    width: 100%;
+  }
+  .nav-item {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Header */
+
+#header {
+  align-items: center;
+  background-image: linear-gradient(90deg, var(--main-blue), var(--main-gray));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+#header-desc {
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* About Me */
+
+#about-me {
+  align-items: center;
+  background-color: var(--main-gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10rem 5rem;
+}
+
+#about-me-image {
+  border-radius: 50%;
+  height: 200px;
+  margin-bottom: 5rem;
+  width: 200px;
+}
+
+#about-me-title {
+  margin-bottom: 5rem;
+}
+
+#about-me-desc {
+  max-width: 96rem;
+}
+
+/* Skills */
+
+#skills {
+  align-items: center;
+  background-color: var(--main-blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10rem 5rem;
+}
+
+.skills-item {
+  display: flex;
+  margin: 5rem;
+  max-width: 96rem;
+}
+
+.skills-item-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-item-right {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.skills-item-image-left {
+  margin-right: 5rem;
+}
+
+.skills-item-image-right {
+  margin-left: 5rem;
+}
+
+.skills-item-title-left {
+  text-align: left;
+}
+
+.skills-item-title-right {
+  text-align: right;
+}
+
+/* Projects */
+
+#projects {
+  background-color: var(--main-grey);
+  padding: 10rem 5rem;
+  text-align: center;
+}
+
+#projects-header {
+  margin: 0 auto 5rem auto;
+  max-width: 96rem;
+}
+
+#projects-grid {
+  display: grid;
+  gap: 5rem;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  margin: 0 auto;
+  max-width: 96rem;
+  width: 100%;
+}
+
+.projects-card {
+  background-color: var(--main-blue);
+  border: 0.2rem solid #fbd46d;
+  height: 40rem;
+  padding: 2rem;
+}
+
+#projects-coming-soon {
+  animation: rotation 2s infinite linear;
+  margin: 5rem 0;
+}
+
+/* Contact Me */
+
+#contact-me {
+  align-items: center;
+  background-color: var(--main-blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10rem 5rem;
+}
+
+#contact-me-title {
+  max-width: 96rem;
+}
+
+#contact-me-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 5rem 0;
+  max-width: 96rem;
+  width: 100%;
+}
+
+.contact-me-list-link {
+  color: var(--main-white);
+  font-size: 3.6rem;
+  transition: transform 0.5s ease-out;
+}
+
+.contact-me-list-link:hover {
+  color: var(--light-green);
+  transform: translateY(10px);
+  transition: 0.3s;
+}
+
+.contact-me-list-image {
+  margin: 0 1rem;
+}
+
+#contact-me-email {
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+}
+
+#contact-me-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 96rem;
+  width: 100%;
+}
+
+#name, #email {
+  border-radius: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.8rem; /* 18px */
+  font-weight: 400;
+  margin: 2rem 0;
+  padding: 1rem;
+  width: 100%;
+}
+
+#message {
+  border-radius: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  height: 10rem;
+  margin: 2rem 0;
+  padding: 1rem;
+  width: 100%;
+}
+
+#contact-me-form-button {
+  background-color: var(--main-green);
+  border: none;
+  border-radius: 1rem;
+  color: var(--main-white);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 2rem 0;
+  padding: 1rem;
+  transition: 0.3s;
+}
+
+#contact-me-form-button:hover {
+  background-color: var(--light-green);
+  color: var(--main-gray);
+  cursor: pointer;
+}
+
+@media (max-width: 61.25em) {
+  #contact-me-list {
+    align-items: center;
+    flex-direction: column;
+  }
+  .contact-me-list-link:hover {
+    transform: translateX(10px);
+  }
+}
+
+/* Footer */
+
+#footer {
+  border-top: 0.2rem solid var(--main-green);
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+#footer-text {
+  text-align: right;
+  width: 96rem;
+}
